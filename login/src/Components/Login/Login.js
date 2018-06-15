@@ -5,7 +5,7 @@ class Login extends Component {
   
   render(){
 
-    const { signIn } = this.props;
+    const { signIn, nuevaCuenta } = this.props;
     
     return(
       <div className="login-page">
@@ -23,7 +23,7 @@ class Login extends Component {
             <input type="text" placeholder="Usuario"/>
             <input type="password" placeholder="Contraseña"/>
             <button onClick={signIn}>login</button>
-            <p className="message">Not registered? <a href="#">Create an account</a></p>
+            <p className="message">Not registered? <a href="#newAcount" onClick={nuevaCuenta}>Create an account</a></p>
           </form>
         </div>
       </div>
