@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './NewAcount.css';
 
+import { Link } from 'react-router-dom';
+
 class NewAcount extends Component {
 
   render() {
 
-    const {regresa} = this.props;
+    const {rutaRegresa} = this.props;
 
     return(
-      <div>Estas en crear nueva cuenta <a href="#login" onClick={regresa}>Regresaaaaaaaaaaaaa</a></div>
+      <div>Estas en crear nueva cuenta <Link to={rutaRegresa} >Regresa</Link></div>
     )
   }
 }

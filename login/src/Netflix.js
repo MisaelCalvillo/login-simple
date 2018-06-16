@@ -5,43 +5,24 @@ import Login from './Components/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard';
 import NewAcount from './Components/NewAcount/NewAcount';
 
-class Netflix extends Component {
+// Componentes de React Router
+import { Route } from 'react-router-dom';
 
-  state = {
-    lugar: "login"
-  }
+class Netflix extends Component {
 
   render() {
     return(
       <div>
-       {this.state.lugar === "login" && <Login signIn={() => {
-         this.setState(() => (
-           {
-             lugar: "dash"
-           }
-         ))}
-       }
+       <Route exact path="/login" render={() => (
+         <Login />
+       )}/>
 
-       nuevaCuenta={() => {
-         this.setState(() => ({
-           lugar: "new"
-         }))
-       }}
+       <Route exact path="/dashboard" component={Dashboard} />
+      
+       <Route exact path='/newAccount' render={() => (
+         <NewAcount rutaRegresa="/login" />
+       )} />
 
-        />}
-       {this.state.lugar === "dash" && <Dashboard cerrarSesion={() => {
-         this.setState(() => (
-           {
-            lugar: "login"
-           }  
-         ))
-       }}/>}
-
-       {this.state.lugar === "new" && <NewAcount regresa={() => {
-         this.setState(() => ({
-           lugar: "login"
-         }))
-       }}/>}
       </div>
     )
   }

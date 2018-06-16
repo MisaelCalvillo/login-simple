@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './Login.css';
 
+import { Link } from 'react-router-dom';
+
 class Login extends Component {
   
   render(){
 
-    const { signIn, nuevaCuenta } = this.props;
+    const { signIn } = this.props;
     
     return(
       <div className="login-page">
@@ -22,8 +24,8 @@ class Login extends Component {
           <form className="login-form">
             <input type="text" placeholder="Usuario"/>
             <input type="password" placeholder="Contraseña"/>
-            <button onClick={signIn}>login</button>
-            <p className="message">Not registered? <a href="#newAcount" onClick={nuevaCuenta}>Create an account</a></p>
+            <Link to="/dashboard"><button>login</button></Link>
+            <p className="message">Not registered? <Link to='/newAccount'>Create an account</Link></p>
           </form>
         </div>
       </div>
